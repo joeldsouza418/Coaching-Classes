@@ -4,7 +4,7 @@ const Timetable = require('../../models/Timetable');
 exports.createOrUpdateTimetable = async (req, res) => {
   try {
     const { classId, day } = req.params;
-    const { schedule } = req.body;
+    const schedule = req.body;
 
     const updated = await Timetable.findOneAndUpdate(
       { classId, day },

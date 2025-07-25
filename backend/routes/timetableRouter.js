@@ -11,9 +11,9 @@ router.put('/:classId/:day', UserAuth, requireRole(['admin']), timetableControll
 
 
 // Get full weekly timetable for a class
-router.get('/:classId', UserAuth, requireRole(['student', 'teacher']), timetableController.getTimetableByClass);
+router.get('/:classId', UserAuth, requireRole(['admin', 'student', 'teacher']), timetableController.getTimetableByClass);
 
 // Get a teacher's timetable based on teacherId (passed as query param)
-router.get('/teacher/timetable', UserAuth, requireRole(['teacher']), timetableController.getTeacherTimetable);
+router.get('/teacher/timetable', UserAuth, requireRole(['admin', 'teacher']), timetableController.getTeacherTimetable);
 
 module.exports = router;
